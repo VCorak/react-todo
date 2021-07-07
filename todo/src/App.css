@@ -68,7 +68,7 @@ h1 {
     outline: none;
     width: 320px;
     background: transparent;
-    color: #fff;
+    color: #B11369;
 }
 
 .todo-input::placeholder {
@@ -106,7 +106,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-li {
+label {
     color: #B11369;
 }
 
