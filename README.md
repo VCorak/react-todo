@@ -1,3 +1,2 @@
 # react-todo
-
-https://cocky-hodgkin-a23a09.netlify.app/ Netlify link
+https://clever-snyder-37e3ab.netlify.app/ Netlify link
