@@ -2,11 +2,11 @@ import React from 'react';
 import Todo from "./Todo";
 import './App.css';
 
-function TodoList({ todos }) { /* rendering out todos */
+function TodoList({ todos, toggleTodo }) { /* rendering out todos */
     return (
         todos.map(todo => { /* inside of an array we loop and map all over our todos
          so for each on of our todos we wanna return a todo element in a Todo component and pass it todo  */
-            return <Todo key = { todo.id } todo = { todo } /> /* returning todo with id*/
+            return <Todo key = { todo.id } toggleTodo = { toggleTodo } todo = { todo } /> /* returning todo with id*/
         })
     );
 };

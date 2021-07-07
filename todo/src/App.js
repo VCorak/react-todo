@@ -11,18 +11,35 @@ function App() {
           update our todos- this is called object destructuring*/
     const todoNameRef = useRef()
 
+    function toggleTodo(id) {
+        const newTodos = [...todos]
+        const todo = newTodos.find(todo => todo.id === id)
+        todo.complete = !todo.complete
+        setTodos(newTodos)
+    }
+
+    let uniqueID = ( function() { /* this function randomizes id instead of downloading uuidv4*/
+        let id =
+            Math.floor(Math.random() * Math.floor(Math.pow(2,32)-1));
+        return function() { return id++ };
+    })();
+
+
     function handleAddNew(e) {
         const name = todoNameRef.current.value
         if (name === '') return
         setTodos(prevTodos => { /* function giving us previous todos and change that by adding new todos in array*/
-            return [...prevTodos, { id: 1, name: name, complete: false}]
+            return [...prevTodos, { id: uniqueID(), name: name, complete: false}]
         })
         todoNameRef.current.value = null /*clearing out input after pressing the button*/
 
     }
 
   return (
-
+      <>
+      <div className="circle-one"></div>
+          <div className="circle-two"></div>
+          <div className="circle-three"></div>
       <div className='todo-app'>
           <h1>TODO APP</h1>
           <form className='todo-form'>
@@ -31,9 +48,9 @@ function App() {
           <button className='clear-todo-button' type='button' value="Submit">Done</button>
           </form>
           <div className='left-todo'>0 left to do</div>
-          <TodoList todos={todos} />
-
+          <TodoList todos={todos} toggleTodo = {toggleTodo} />
       </div>
+      </>
 
   );
 }
@@ -44,3 +61,10 @@ export default App;
 /*[{ id: 1, name: 'Todo 1', complete: false }]) - we can not just store the name of our todo, we have to store an object
      weather or not is complete, we need to have properties of name, id and complete - but this is just hardcoded, default, erase it later, bcs we need empty array*/
 //* useRef- allow us to reference elements inside our html- in this case we need it for referencing input value*/
+/*Can this be used instead that uuidv4??
+* // just a random unique id
+var uniqueID = ( function() {
+  var id =
+    Math.floor(Math.random() * Math.floor(Math.pow(2,32)-1));
+  return function() { return id++ };
+})();*/
