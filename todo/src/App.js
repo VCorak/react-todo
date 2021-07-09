@@ -11,11 +11,11 @@ function App() {
        - then we are setting a state to a variable (const) that it returns an array and we can destructure that
         array and set it equal to useState- first element is all of our todos, second element is function that allow us to
           update our todos- this is called object destructuring*/
-    const todoNameRef = useRef()
+
 
     useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) // this is a string and we need to parse it using json and this will convert it to array
-        if (storedTodos) setTodos(storedTodos) // store todos if we have them from local storage
+        if (storedTodos) setTodos(storedTodos) // store todos if we have them from local storage- it is only browser accessible
 
     }, []) // empty array means we just want to call this function once right when our component loads,
     // and bcs empty array never changes it will not call it again
@@ -37,6 +37,7 @@ function App() {
         return function() { return id++ };
     })();
 
+    const todoNameRef = useRef()
 
     function handleAddNew(e) {
         const name = todoNameRef.current.value
@@ -86,3 +87,10 @@ var uniqueID = ( function() {
   return function() { return id++ };
 })();*/
 /* {todos.filter(todo => !todo.complete).length} filter ones which are not complete*/
+//The Local Storage is designed for storage that spans multiple windows and lasts beyond the current session. In particular, Web applications may wish to store megabytes of user data, such as entire user-authored documents or a user's mailbox, on the client side for performance reasons. Cookies do not handle this case well because they are transmitted with every request.
+//
+// Local Storage is available for every page and remains even when the web browser is closed, but you cannot read it on the server.
+//
+// The stored data has no expiration date in local storage. With cookies, you can set the expiration duration.
+//
+// If you want to clear local storage, then do it by clearing the browser cache. You can also use JavaScript for this. Local Storage is for client side, whereas cookies are for the client as well as server side.
