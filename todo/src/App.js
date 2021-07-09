@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './App.css';
 import TodoList from "./TodoList";
+
+const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 function App() {
     const [todos, setTodos] = useState([]) /* state- when state of application changes it renders it,
@@ -10,6 +12,12 @@ function App() {
         array and set it equal to useState- first element is all of our todos, second element is function that allow us to
           update our todos- this is called object destructuring*/
     const todoNameRef = useRef()
+
+    useEffect()
+
+    useEffect(() => { // function to do things- anytime something changes in array we call this function to save our todos in local storage
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
+    }, [todos]) // array of properties
 
     function toggleTodo(id) {
         const newTodos = [...todos]
