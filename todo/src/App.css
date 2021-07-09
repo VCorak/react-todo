@@ -10,55 +10,6 @@
 body {
     background-color: #d9e4f5;
     background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
-
-}
-
-.circle-one {
-    position: absolute;
-    top: 55%;
-    right: 55%;
-    border-radius: 50%;
-    width: 300px;
-    height: 300px;
-    z-index: -1;
-    background-color: #fbb034;
-    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
-
-}
-
-
-.circle-two {
-    position: absolute;
-    top: 5%;
-    right: 55%;
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    z-index: -1;
-    background-color: #fbb034;
-    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
-
-}
-
-.circle-three {
-    position: absolute;
-    top: 45%;
-    right: 25%;
-    border-radius: 50%;
-    width: 250px;
-    height: 250px;
-    z-index: -1;
-    background-color: #fbb034;
-    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
-
-}
-
-@media (max-width: 740px)
-{
-    .circle-one, .circle-two, .circle-three
-    {
-        display: none;
-    }
 }
 
 .todo-app {
@@ -173,6 +124,7 @@ h1 {
     .todo-app {
         max-width: 300px;
     }
+
     .todo-input {
         width: 245px;
         margin-right: 15px;
@@ -181,10 +133,14 @@ h1 {
     .add-todo-button, .clear-todo-button {
         margin-top: 20px;
     }
+
 }
+
 
 @media screen and (min-width: 601px) {
     .todo-app {
         max-width: 600px;
     }
+
 }
+

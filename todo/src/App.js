@@ -55,9 +55,6 @@ function App() {
 
   return (
       <>
-      <div className="circle-one"></div>
-          <div className="circle-two"></div>
-          <div className="circle-three"></div>
       <div className='todo-app'>
           <h1>TODO APP</h1>
           <form className='todo-form'>
