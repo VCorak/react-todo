@@ -13,7 +13,12 @@ function App() {
           update our todos- this is called object destructuring*/
     const todoNameRef = useRef()
 
-    useEffect()
+    useEffect(() => {
+        const storedTodos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) // this is a string and we need to parse it using json and this will convert it to array
+        if (storedTodos) setTodos(storedTodos) // store todos if we have them from local storage
+
+    }, []) // empty array means we just want to call this function once right when our component loads,
+    // and bcs empty array never changes it will not call it again
 
     useEffect(() => { // function to do things- anytime something changes in array we call this function to save our todos in local storage
         localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(todos))
