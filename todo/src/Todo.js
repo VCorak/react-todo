@@ -7,12 +7,10 @@ function Todo({ todo, toggleTodo }) { /* passing out todo element */ /* printing
     }
 
     return ( /* printing out todo */
-        <div className='print-container'>
             <div className='print-row'>
                 <input type = "checkbox" checked={ todo.complete } onChange={handleTodoClick} className='checkbox' />
             { todo.name }
             </div>
-        </div>
     );
 };
 

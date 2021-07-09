@@ -6,13 +6,6 @@
     'Lucida Sans', Arial, sans-serif;
 }
 
-/*body {
-    background: linear-gradient(
-            90deg,
-            rgba(48, 16, 255, 1) 0%,
-            rgba(100, 115, 255, 1) 100%
-    );
-}*/
 
 body {
     background-color: #d9e4f5;
@@ -30,7 +23,9 @@ body {
     z-index: -1;
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+
 }
+
 
 .circle-two {
     position: absolute;
@@ -42,6 +37,7 @@ body {
     z-index: -1;
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+
 }
 
 .circle-three {
@@ -54,6 +50,7 @@ body {
     z-index: -1;
     background-color: #fbb034;
     background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
+
 }
 
 @media (max-width: 740px)
@@ -139,11 +136,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-.print-container {
-    display: flex;
-    flex-direction: row;
-    position: relative;
-}
 
 .print-row {
     display: flex;
@@ -157,12 +149,42 @@ h1 {
     width: 90%;
 }
 
+.print-row:nth-child(4n + 1) {
+    background-color: #7ee8fa;
+    background-image: linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+}
+
+.print-row:nth-child(4n + 2) {
+    background-color: #ffac81;
+    background-image: linear-gradient(315deg, #ffac81 0%, #ff928b 74%);
+}
+
+.print-row:nth-child(4n + 3) {
+    background-color: #eec0c6;
+    background-image: linear-gradient(315deg, #eec0c6 0%, #7ee8fa 74%);
+
+}
+
 .checkbox {
     margin-right: 10px;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (max-width: 600px) {
     .todo-app {
-        max-width: 500px;
+        max-width: 300px;
+    }
+    .todo-input {
+        width: 245px;
+        margin-right: 15px;
+    }
+
+    .add-todo-button, .clear-todo-button {
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .todo-app {
+        max-width: 600px;
     }
 }
