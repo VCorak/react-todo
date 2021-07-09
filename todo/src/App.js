@@ -25,7 +25,7 @@ function App() {
     }, [todos]) // array of properties
 
     function toggleTodo(id) {
-        const newTodos = [...todos]
+        const newTodos = [...todos] // never modify directly a state variable, always create a copy to set a new state
         const todo = newTodos.find(todo => todo.id === id)
         todo.complete = !todo.complete
         setTodos(newTodos)
@@ -45,7 +45,11 @@ function App() {
             return [...prevTodos, { id: uniqueID(), name: name, complete: false}]
         })
         todoNameRef.current.value = null /*clearing out input after pressing the button*/
+    }
 
+    function handleDone() { // set todo list to new list that does not have our complete ones
+        const newTodos = todos.filter(todo => !todo.complete) // variable
+        setTodos(newTodos)
     }
 
   return (
@@ -58,9 +62,9 @@ function App() {
           <form className='todo-form'>
               <input ref={todoNameRef} type= "text" className='todo-input' placeholder='Add a todo' />
           <button onClick={handleAddNew} className='add-todo-button' type="button" value="Submit">Add new</button>
-          <button className='clear-todo-button' type='button' value="Submit">Done</button>
+          <button onClick={handleDone} className='clear-todo-button' type='button' value="Submit">Done</button>
           </form>
-          <div className='left-todo'>0 left to do</div>
+          <div className='left-todo'>{todos.filter(todo => !todo.complete).length} left to do</div>
           <TodoList todos={todos} toggleTodo = {toggleTodo} />
       </div>
       </>
@@ -81,3 +85,4 @@ var uniqueID = ( function() {
     Math.floor(Math.random() * Math.floor(Math.pow(2,32)-1));
   return function() { return id++ };
 })();*/
+/* {todos.filter(todo => !todo.complete).length} filter ones which are not complete*/
